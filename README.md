@@ -37,7 +37,6 @@ PORT=4000
   npm run build
   npm start
   ```
-
 ### 4. Run tests
 ```bash
 npm test

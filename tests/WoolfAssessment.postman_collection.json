@@ -1,0 +1,82 @@
+{
+  "info": {
+    "_postman_id": "b1e7e7e0-0000-0000-0000-000000000001",
+    "name": "Woolf Assessment API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:4000/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["health"]
+        }
+      }
+    },
+    {
+      "name": "Analyze CV and Job Description (REST)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "jobDescription",
+              "type": "file",
+              "src": ""
+            },
+            {
+              "key": "cv",
+              "type": "file",
+              "src": ""
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:4000/analyze",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["analyze"]
+        }
+      }
+    },
+    {
+      "name": "Analyze CV and Job Description (tRPC)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"jobDescription\": \"<paste base64 string here>\",\n  \"cv\": \"<paste base64 string here>\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:4000/trpc/analyzeCV",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": ["trpc", "analyzeCV"]
+        }
+      }
+    }
+  ]
+} 
